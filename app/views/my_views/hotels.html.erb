@@ -1,0 +1,136 @@
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="home">KnowWhereToGo</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="home">Attractions</a>
+        </li>
+        <li>
+          <a href="places">Places</a>
+        </li>
+        <li  class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account</a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="signout">Signout</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+  <!-- Page Header -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Hotels in <%= @city %>
+      </h1>
+    </div>
+  </div>
+  <!-- /.row -->
+
+
+      <!-- Page Header -->
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="page-header">
+            <%= @city %>
+          </h2>
+        </div>
+      </div>
+      <!-- /.row -->
+      <% unless @current_batch.blank?%>
+      <% @current_batch.each_slice(3) do |group| %>
+          <!-- Cities Row -->
+          <div class="row">
+            <% unless group.blank? %>
+                <% group.each do |g| %>
+                    <div class="col-md-4 portfolio-item">
+                      <% hotel_name = g['name'].gsub(/[^0-9A-Za-z ]/, '')%>
+                      <% hotel_name = hotel_name.gsub(' ','-')%>
+                      <a href="hotel_booking?hotel_name=<%= hotel_name %>&city=<%= @city %>&hotel_id=<%= g['id'] %>">
+                        <object data="<%= g['url'].blank? ? 'null' : g['url'] %>" type="image/png" >
+                          <a href="hotel_booking?hotel_name=<%= hotel_name %>&city=<%= @city %>&hotel_id=<%= g['id'] %>"> <img class="img-responsive" src="../../../assets/default_hotel.jpg" alt="" height="205" width="320"> </a>
+                        </object>
+                      </a>
+                      <h3>
+                        <a href="hotel_booking?hotel_name=<%= hotel_name %>&city=<%= @city %>&hotel_id=<%= g['id'] %>"><%= g['name'] %> </a>
+                      </h3>
+                      <p>Rating: <%= g['rating'] %></p>
+                      <p>Price: <%= g['price'] %></p>
+                    </div>
+
+                <% end %>
+            <% end %>
+          </div>
+          <!-- /.row -->
+      <% end %>
+      <%end%>
+
+
+
+
+
+  <hr>
+
+  <!-- Pagination -->
+  <div class="row text-center">
+    <div class="col-lg-12">
+      <ul class="pagination">
+        <% (1..@pages).each do |i| %>
+            <% p "@current_page #{@current_page}" %>
+            <% p "eye #{i}" %>
+            <% if @current_page.to_i == i.to_i%>
+                <li class='active'>
+                  <a href='hotels?city=<%= @city %>&page=<%= i %>'><%= i %></a>
+                </li>
+            <% else %>
+                <li>
+                  <a href='hotels?city=<%= @city %>&page=<%= i %>'><%= i %></a>
+                </li>
+            <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="row">
+      <div class="col-lg-12">
+        <p>Copyright &copy; knowwhere2roam 2014</p>
+      </div>
+    </div>
+    <!-- /.row -->
+  </footer>
+
+</div>
+<!-- /.container -->
+
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
