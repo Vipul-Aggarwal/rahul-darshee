@@ -88,7 +88,6 @@ li a {
 }
 li a:hover,
 li a:focus {
-    background: #1ABC9C;
     color: #fff;
 }
 
