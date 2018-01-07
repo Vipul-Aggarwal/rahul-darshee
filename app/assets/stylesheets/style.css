@@ -269,7 +269,7 @@ figure {
 }
 
 .sf-menu li.active a:hover, .sf-menu li.active a:focus {
-  color: #F69D9D !important;
+  color: #F69D9D;
 }
 
 .sf-menu li,

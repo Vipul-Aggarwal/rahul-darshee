@@ -51,9 +51,7 @@
 	text-decoration: none;
 	zoom: 1; /* IE7 */
 }
-.sf-menu a {
-	color: #13a;
-}
+
 .sf-menu li {
 	background: #BDD2FF;
 	white-space: nowrap; /* no need for Supersubs plugin */
