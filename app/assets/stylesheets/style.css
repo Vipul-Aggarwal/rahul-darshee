@@ -230,9 +230,9 @@ figure {
 }
 
 .fh5co-cover .display-tc p span {
-  border-top: 0px solid #fff;
-  border-bottom: 0px solid #fff;
-  padding: 0px 0px;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  padding: 5px 0px;
 }
 
 /* Superfish Override Menu */
