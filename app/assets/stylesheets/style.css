@@ -235,6 +235,11 @@ figure {
   padding: 5px 0px;
 }
 
+.fh5co-cover .display-tc1 p span {
+    border-top: 0px solid #fff;
+    border-bottom: 0px solid #fff;
+    padding: 0px 0px;
+}
 /* Superfish Override Menu */
 .sf-menu {
   margin: 7px 0 0 0 !important;
