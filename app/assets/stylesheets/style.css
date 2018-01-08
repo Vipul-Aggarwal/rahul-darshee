@@ -235,14 +235,14 @@ figure {
   padding: 5px 0px;
 }
 
-.fh5co-cover .display-tc span {
+.fh5co-cover .display-tc .display-tc1 p {
     color: #fff;
     font-weight: 400;
     font-size: 16px;
     letter-spacing: 7px;
 }
 
-.fh5co-cover .display-tc span span {
+.fh5co-cover .display-tc .display-tc1 p span {
     border-top: 0px solid #fff;
     border-bottom: 0px solid #fff;
     padding: 0px 0px;
