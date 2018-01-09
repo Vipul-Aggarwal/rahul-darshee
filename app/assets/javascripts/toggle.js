@@ -36,9 +36,7 @@ function toggleClass(elem, className) {
     }
 }
 
-if (theToggle != null) {
-    theToggle.onclick = function () {
-        toggleClass(this, 'on');
-        return false;
-    }
+theToggle.onclick = function() {
+    toggleClass(this, 'on');
+    return false;
 }
